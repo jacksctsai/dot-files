@@ -1,4 +1,4 @@
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 ##
 # Your previous /Users/jacktsai/.bash_profile file was backed up as /Users/jacktsai/.bash_profile.macports-saved_2011-11-02_at_19:16:09
@@ -38,3 +38,27 @@ alias ..="cd .."
 
 #export TEST="A $TEST"
 #echo $PATH
+
+# Setting PATH for Python 2.7
+# The orginal version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
+export PATH
+
+# Show git branch name
+function git_branch {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || return;
+    echo "("${ref#refs/heads/}") ";
+}
+
+function git_since_last_commit {
+  now=`date +%s`;
+  last_commit=$(git log --pretty=format:%at -1 2> /dev/null) || return;
+  seconds_since_last_commit=$((now-last_commit));
+  minutes_since_last_commit=$((seconds_since_last_commit/60));
+  hours_since_last_commit=$((minutes_since_last_commit/60));
+  minutes_since_last_commit=$((minutes_since_last_commit%60));
+
+  echo "${hours_since_last_commit}h${minutes_since_last_commit}m ";
+}
+
+PS1="[ $HI\u \[\033[1;32m\]\w\[\033[0m] \[\033[0m\]\[\033[1;36m\]\$(git_branch)\[\033[0;33m\]\$(git_since_last_commit)\[\033[0m\]$ "
