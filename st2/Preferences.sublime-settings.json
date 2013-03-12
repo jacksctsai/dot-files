@@ -1,0 +1,27 @@
+{
+  "color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
+  "fade_fold_buttons": false,
+  "font_face": "monaco",
+  "font_size": 18.0,
+  "highlight_line": true,
+  "rulers": [ 80 ],
+  "shift_tab_unindent": true,
+  "folder_exclude_patterns":
+  [
+    ".svn",
+    ".git",
+    ".hg",
+    "CVS",
+    ".sass-cache"
+  ],
+  "highlight_modified_tabs": true,
+  "tree_animation_enabled": false,
+  "ignored_packages":
+  [
+  ],
+  "tab_size": 2,
+  "theme": "Soda Light.sublime-theme",
+  "translate_tabs_to_spaces": true,
+  "trim_automatic_white_space": true,
+  "trim_trailing_white_space_on_save": true
+}
